@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Bot 利用規約</title>
+    <style>
+        /* ページ全体のスタイル */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #282828;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        /* 利用規約のコンテンツエリア */
+        #content {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            overflow-y: scroll;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        footer {
+            background-color: #282828;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none; /* 初期状態では非表示 */
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Discord Bot 利用規約</h1>
+    </header>
+
+    <section id="content">
+        <h2>第1条（はじめに）</h2>
+        <p>本規約（以下「本規約」といいます）は、ユーザー（以下「ユーザー」といいます）が本ボット（以下「本ボット」といいます）を利用する際に適用されます。本ボットを使用することにより、ユーザーは本規約に同意したものとみなされます。本規約に同意しない場合、ユーザーは本ボットを利用することができません。</p>
+
+        <h2>第2条（利用資格）</h2>
+        <ol>
+            <li>ユーザーは、Discordの利用規約を遵守し、かつ、18歳以上であることが必要です。</li>
+            <li>未成年者が本ボットを利用する場合、親権者の同意が必要です。</li>
+        </ol>
+
+        <h2>第3条（ボットの利用目的）</h2>
+        <p>本ボットは、個人用のDiscordボットです。サーバー内で特定の機能（メッセージの自動管理や情報の提供など）をサポートしますが、コマンドを実行する機能は存在しません。</p>
+
+        <h2>第4条（禁止事項）</h2>
+        <ul>
+            <li>本ボットを利用して、不正行為や悪意のある行為を行うこと。</li>
+            <li>本ボットの動作を妨害または破壊する行為を行うこと。</li>
+            <li>不適切なコンテンツを送信すること（暴力的、猥褻、不快感を与えるものなど）。</li>
+        </ul>
+
+        <h2>第5条（免責事項）</h2>
+        <p>本ボットは、個人使用の目的で提供されています。提供者は、本ボットを使用した結果として生じた損害について一切の責任を負いません。</p>
+
+        <h2>第6条（変更・解除）</h2>
+        <p>本規約は、予告なく変更されることがあります。変更があった場合、変更後の利用規約に同意したものとみなされます。</p>
+    </section>
+
+    <button id="agreeButton">利用規約に同意して進む</button>
+
+    <footer>
+        <p>&copy; All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 利用規約のスクロール状態をチェックし、ボタンを表示
+        const content = document.getElementById('content');
+        const agreeButton = document.getElementById('agreeButton');
+
+        content.addEventListener('scroll', function () {
+            if (content.scrollTop + content.clientHeight >= content.scrollHeight) {
+                agreeButton.style.display = 'block';  // ボタンを表示
+            }
+        });
+    </script>
+
+</body>
+</html>
