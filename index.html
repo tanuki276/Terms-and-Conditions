@@ -8,71 +8,101 @@
         /* ページ全体のスタイル */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             margin: 0;
             padding: 0;
+            color: #333;
         }
 
         header {
-            background-color: #282828;
+            background: linear-gradient(90deg, #141414, #3a0ca3);
             color: white;
-            padding: 10px 0;
+            padding: 15px 0;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         h1 {
             margin: 0;
+            font-weight: 700;
+            letter-spacing: 1.2px;
         }
 
         /* 利用規約のコンテンツエリア */
         #content {
             max-width: 800px;
-            margin: 20px auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            height: 400px;
+            margin: 30px auto 100px;
+            background: white;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            height: 420px;
             overflow-y: scroll;
+            font-size: 16px;
+            line-height: 1.6;
         }
 
         h2 {
-            color: #333;
+            color: #4b0082;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
 
         footer {
-            background-color: #282828;
+            background: linear-gradient(90deg, #141414, #3a0ca3);
             color: white;
-            padding: 10px 0;
+            padding: 15px 0;
             text-align: center;
             position: fixed;
             bottom: 0;
             width: 100%;
+            box-shadow: 0 -3px 8px rgba(0,0,0,0.3);
+            font-size: 14px;
         }
 
         button {
-            background-color: #4CAF50;
+            display: block;
+            max-width: 240px;
+            margin: 20px auto 40px;
+            padding: 12px 0;
+            font-size: 18px;
+            font-weight: 700;
             color: white;
             border: none;
-            padding: 10px 20px;
-            font-size: 16px;
+            border-radius: 30px;
             cursor: pointer;
-            border-radius: 5px;
-            margin: 20px auto;
-            display: block;
-            max-width: 200px;
-            opacity: 0;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            box-shadow: 0 4px 12px rgba(101, 76, 255, 0.6);
+            opacity: 0.4;
             pointer-events: none;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease, box-shadow 0.4s ease;
+            user-select: none;
         }
 
         button.enabled {
             opacity: 1;
             pointer-events: auto;
+            user-select: auto;
+            box-shadow: 0 6px 18px rgba(101, 76, 255, 0.9);
         }
 
-        button:hover {
-            background-color: #45a049;
+        button.enabled:hover {
+            background: linear-gradient(90deg, #4b00b5, #1a54d9);
+            box-shadow: 0 8px 24px rgba(101, 76, 255, 1);
+        }
+
+        /* スクロールバーのカスタム */
+        #content::-webkit-scrollbar {
+            width: 10px;
+        }
+        #content::-webkit-scrollbar-thumb {
+            background: #764ba2;
+            border-radius: 8px;
+        }
+        #content::-webkit-scrollbar-track {
+            background: #eee;
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -82,7 +112,7 @@
         <h1>Discord Bot 利用規約</h1>
     </header>
 
-    <section id="content">
+    <section id="content" tabindex="0">
         <h2>第1条（はじめに）</h2>
         <p>本規約（以下「本規約」といいます）は、ユーザー（以下「ユーザー」といいます）が本ボット（以下「本ボット」といいます）を利用する際に適用されます。本ボットを使用することにより、ユーザーは本規約に同意したものとみなされます。本規約に同意しない場合、ユーザーは本ボットを利用することができません。</p>
 
@@ -120,8 +150,7 @@
         const agreeButton = document.getElementById('agreeButton');
 
         content.addEventListener('scroll', () => {
-            const scrollPercent = (content.scrollTop + content.clientHeight) / content.scrollHeight;
-            if (scrollPercent > 0.9) {
+            if (content.scrollTop + content.clientHeight >= content.scrollHeight - 10) {
                 agreeButton.disabled = false;
                 agreeButton.classList.add('enabled');
             }
