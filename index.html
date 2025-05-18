@@ -36,73 +36,59 @@
             padding: 25px 30px;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            height: 420px;
+            height: 400px;
             overflow-y: scroll;
-            font-size: 16px;
-            line-height: 1.6;
         }
 
         h2 {
-            color: #4b0082;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            font-weight: 700;
+            color: #333;
+            margin-top: 1.5em;
+            font-weight: 600;
+        }
+
+        p, li {
+            line-height: 1.6;
+            font-size: 16px;
         }
 
         footer {
             background: linear-gradient(90deg, #141414, #3a0ca3);
             color: white;
-            padding: 15px 0;
+            padding: 12px 0;
             text-align: center;
             position: fixed;
             bottom: 0;
             width: 100%;
-            box-shadow: 0 -3px 8px rgba(0,0,0,0.3);
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
             font-size: 14px;
         }
 
         button {
-            display: block;
-            max-width: 240px;
-            margin: 20px auto 40px;
-            padding: 12px 0;
-            font-size: 18px;
-            font-weight: 700;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
             color: white;
             border: none;
-            border-radius: 30px;
+            padding: 14px 26px;
+            font-size: 18px;
             cursor: pointer;
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
-            box-shadow: 0 4px 12px rgba(101, 76, 255, 0.6);
-            opacity: 0.4;
+            border-radius: 30px;
+            margin: 20px auto;
+            display: block;
+            max-width: 250px;
+            opacity: 0;
             pointer-events: none;
-            transition: opacity 0.4s ease, box-shadow 0.4s ease;
-            user-select: none;
+            box-shadow: 0 5px 15px rgba(101, 41, 255, 0.6);
+            transition: opacity 0.4s ease, box-shadow 0.3s ease;
+            font-weight: 700;
         }
 
         button.enabled {
             opacity: 1;
             pointer-events: auto;
-            user-select: auto;
-            box-shadow: 0 6px 18px rgba(101, 76, 255, 0.9);
         }
 
         button.enabled:hover {
-            background: linear-gradient(90deg, #4b00b5, #1a54d9);
-            box-shadow: 0 8px 24px rgba(101, 76, 255, 1);
-        }
-
-        /* スクロールバーのカスタム */
-        #content::-webkit-scrollbar {
-            width: 10px;
-        }
-        #content::-webkit-scrollbar-thumb {
-            background: #764ba2;
-            border-radius: 8px;
-        }
-        #content::-webkit-scrollbar-track {
-            background: #eee;
-            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(101, 41, 255, 0.9);
+            background: linear-gradient(90deg, #4e0ecc, #1a5fed);
         }
     </style>
 </head>
@@ -112,7 +98,7 @@
         <h1>Discord Bot 利用規約</h1>
     </header>
 
-    <section id="content" tabindex="0">
+    <section id="content">
         <h2>第1条（はじめに）</h2>
         <p>本規約（以下「本規約」といいます）は、ユーザー（以下「ユーザー」といいます）が本ボット（以下「本ボット」といいます）を利用する際に適用されます。本ボットを使用することにより、ユーザーは本規約に同意したものとみなされます。本規約に同意しない場合、ユーザーは本ボットを利用することができません。</p>
 
@@ -150,7 +136,8 @@
         const agreeButton = document.getElementById('agreeButton');
 
         content.addEventListener('scroll', () => {
-            if (content.scrollTop + content.clientHeight >= content.scrollHeight - 10) {
+            const scrollPercent = (content.scrollTop + content.clientHeight) / content.scrollHeight;
+            if (scrollPercent > 0.9) {
                 agreeButton.disabled = false;
                 agreeButton.classList.add('enabled');
             }
