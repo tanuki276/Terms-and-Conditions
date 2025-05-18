@@ -2,42 +2,63 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Discord Bot 利用規約</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #667eea, #764ba2);
       margin: 0;
       padding: 0;
       color: #333;
+      word-wrap: break-word;
     }
 
     header {
       background: linear-gradient(90deg, #141414, #3a0ca3);
       color: white;
-      padding: 15px 0;
+      padding: 15px 10px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
       margin: 0;
+      font-size: 1.6em;
       font-weight: 700;
-      letter-spacing: 1.2px;
+      letter-spacing: 1px;
     }
 
     #content {
       max-width: 800px;
-      margin: 30px auto 60px;
+      margin: 20px auto 80px;
       background: white;
-      padding: 25px 30px;
+      padding: 20px;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
     h2 {
       color: #3a0ca3;
+      font-size: 1.3em;
+    }
+
+    p, li {
+      line-height: 1.6;
+      font-size: 1em;
+    }
+
+    ul, ol {
+      padding-left: 1.5em;
+    }
+
+    #agreeWrapper {
+      text-align: center;
+      margin-top: 30px;
     }
 
     button {
@@ -45,15 +66,14 @@
       color: white;
       border: none;
       padding: 12px 24px;
-      font-size: 16px;
+      font-size: 1em;
       cursor: pointer;
       border-radius: 8px;
-      margin: 30px auto;
-      display: block;
-      max-width: 250px;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.4s ease;
+      width: 90%;
+      max-width: 300px;
     }
 
     button.enabled {
@@ -64,9 +84,9 @@
     footer {
       background-color: #141414;
       color: white;
-      padding: 10px 0;
+      padding: 12px 10px;
       text-align: center;
-      margin-top: 60px;
+      font-size: 0.9em;
     }
   </style>
 </head>
@@ -102,7 +122,7 @@
     <h2 id="last">第6条（変更・解除）</h2>
     <p>本規約は、予告なく変更されることがあります。変更があった場合、変更後の利用規約に同意したものとみなされます。</p>
 
-    <div id="agreeWrapper" style="text-align: center;">
+    <div id="agreeWrapper">
       <button id="agreeButton" disabled>利用規約に同意して進む</button>
     </div>
   </section>
